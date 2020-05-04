@@ -1,4 +1,4 @@
 class Appointment < ApplicationRecord
     belongs_to :user 
-    belongs_to :massages
+    belongs_to :massage
 end
