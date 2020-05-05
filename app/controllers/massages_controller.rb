@@ -7,6 +7,7 @@ class MassagesController < ApplicationController
     end
 
     def new
+        @massage = Massage.new
     end
 
     def create
