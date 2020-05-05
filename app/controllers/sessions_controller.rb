@@ -20,6 +20,4 @@ class SessionsController < ApplicationController
   def login
   end
 
-  def welcome
-  end
 end
