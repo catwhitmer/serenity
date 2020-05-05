@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :massages
-  resources :appontments
-  
   root 'sessions#welcome'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/welcome', to: 'sessions#welcome'
-
+  get '/signup', to: 'users#new'
+  post '/singup', to: 'users#new'
+  
+ 
+  resources :users
+  resources :massages
+  resources :appointments
+  
    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
