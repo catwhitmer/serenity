@@ -11,6 +11,7 @@ class MassagesController < ApplicationController
     end
 
     def create
+        @massage = Massage.new(massage_params)
     end
 
     private
