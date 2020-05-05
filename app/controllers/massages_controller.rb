@@ -12,4 +12,10 @@ class MassagesController < ApplicationController
 
     def create
     end
+
+    private
+
+    def massage_params
+        params.require(:massage).permit(:category, :length)
+    end
 end
