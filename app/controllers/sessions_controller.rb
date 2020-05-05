@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:message] = "Sorry, that did not work. Please try again!"
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 
