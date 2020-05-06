@@ -2,6 +2,7 @@
 
 <% @massages.each do |massage| %>
   <h3><%= link_to massage.category, massage_path(massage) %></h3>
+  <h3><%= massage.length %> min </h3>
   <br>
 <% end %>
   
