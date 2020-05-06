@@ -1,0 +1,10 @@
+<%= form_for @massage do |f| %>
+    <%= f.label :category %><br>
+    <%= f.select :category, options_for_select(["Swedish massage", "Assisted stretch massage", "Hot Stone massage", "Deep Tissue massage", "Pre Natal massage", "Reflexology massage"]) %><br>
+    <br>
+    <%= f.label :length %><br>
+    <%= f.select :length, options_for_select(["30 min", "60 min", "90 min"]) %>
+    <br>
+    <br>
+    <%= f.submit "Create Massage" %>
+<% end %>
