@@ -11,7 +11,14 @@
       <br>
     <%= f.label :time %>
     <%= f.select :time, options_for_select(["8:00 am", "9:00 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm"]) %>
+
+    
       <br>
       <br>
+    
+    <%= f.label :massage_id "Select a Massage" %>
+    <%= f.collection.select :massage_id, Massage.all, :id, :category, prompt:true %>
+
+      <h3> </h3>
     <%= f.submit "Make an Appointment" %>
 <% end %>
