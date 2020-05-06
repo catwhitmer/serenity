@@ -1,1 +1,8 @@
 <h1>Here is a list of all our available massages</h1>
+
+<% @massages.each do |massage| %>
+  <h3><%= link_to massage.category, massage_path(massage) %></h3>
+  <h3> Length: <%= massage.length %> min </h3>
+  <br>
+<% end %>
+  
