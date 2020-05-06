@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_05_04_204311) do
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "date"
     t.string "location"
+    t.string "date"
+    t.integer "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_204311) do
   create_table "massages", force: :cascade do |t|
     t.string "category"
     t.integer "length"
+    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
