@@ -1,12 +1,17 @@
 <h1>Make an appointment right here!</h1>
 
 <%= form_for @appointment do |f| %>
-    <%= f.label :date %><br>
-    <%= f.select :date, options_for_select(["May 6th", "May 7th", "May 8th", "May 12th", "May 15", "May 20"]) %><br>
-    <br>
-    <%= f.label :location %><br>
+    <%= f.label :location %>
     <%= f.select :location, options_for_select(["Atlanta", "New York", "Houston", "Miami", "San Francisco", "Seattle", "Las Vegsa", "Chicago", "Detroit"]) %>
-    <br>
-    <br>
-    <%= f.submit "Create an Appointment" %>
-    <% end %>
+      <br>
+      <br>
+    <%= f.label :date %>
+    <%= f.select :date, options_for_select(["May 6th", "May 7th", "May 8th", "May 12th", "May 15", "May 20"]) %>
+      <br>
+      <br>
+    <%= f.label :time %>
+    <%= f.select :time, options_for_select(["8:00 am", "9:00 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm"]) %>
+      <br>
+      <br>
+    <%= f.submit "Make an Appointment" %>
+<% end %>
