@@ -10,11 +10,15 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = Appointment.new(appointment_params)
-        @appointment.save
-        redirect_to appointment_path(@appointment)
+        if @appointment.save
+          redirect_to appointment_path(@appointment)
+        else
+          render :new
+        end
     end 
 
     def show
+        @appointment = Appointment.find_by(id: params[:id])
     end
 
 
