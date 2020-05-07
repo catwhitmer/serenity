@@ -1,28 +1,32 @@
 class AppointmentsController < ApplicationController
 
     def index
+      if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
+        @appointments = massage.appointments
+      else
         @appointments = Appointment.all
+      end
     end
     
     def new 
-        if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
-          @appoinment = massage.appointments.build 
-        else
-          @appointment = Appointment.new
-        end
+      if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
+        @appoinment = massage.appointments.build 
+      else
+        @appointment = Appointment.new
+      end
     end 
 
     def create
-        @appointment = current_user.appointments.build(appointment_params)
-        if @appointment.save
-          redirect_to appointment_path(@appointment)
-        else
-          render :new
-        end
+      @appointment = current_user.appointments.build(appointment_params)
+      if @appointment.save
+        redirect_to appointment_path(@appointment)
+      else
+        render :new
+      end
     end 
 
     def show
-        set_appointment
+      set_appointment
     end
 
     def edit
