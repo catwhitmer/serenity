@@ -37,7 +37,7 @@ class MassagesController < ApplicationController
     private
 
     def massage_params
-        params.require(:massage).permit(:category, :length, :content)
+        params.require(:massage).permit(:category, :length)
     end
 
     def set_massage
