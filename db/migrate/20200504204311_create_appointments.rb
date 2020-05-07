@@ -4,6 +4,8 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :date
       t.integer :time
+      t.integer :user_id
+      t.integer :massage_id
 
       t.timestamps
     end
