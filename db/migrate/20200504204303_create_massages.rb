@@ -3,7 +3,6 @@ class CreateMassages < ActiveRecord::Migration[6.0]
     create_table :massages do |t|
       t.string :category
       t.integer :length
-      t.string :content
 
       t.timestamps
     end
