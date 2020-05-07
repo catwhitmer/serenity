@@ -2,4 +2,7 @@
 <h3> Date: <%= @appointment.date %></h3>
 <h3> Time: <%= @appointment.time %></h3>
 
-<%= link_to "Edit your Appointment", edit_appointment_path(@appointment) %>
+<% if @appointment.user == current_user %>
+    <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %>
+    <%= link_to "Delete Appointment", appointment_path(@appointment), method: :delete %>
+<% end %>
