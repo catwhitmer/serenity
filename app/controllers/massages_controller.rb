@@ -34,6 +34,12 @@ class MassagesController < ApplicationController
       end
     end
 
+    def destroy
+      set_massage
+      @massage.destroy
+      redirect_to massages_path
+    end
+
     private
 
     def massage_params
