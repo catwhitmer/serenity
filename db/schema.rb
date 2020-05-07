@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_05_04_204311) do
     t.string "location"
     t.string "date"
     t.integer "time"
+    t.integer "user_id"
+    t.integer "massage_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
