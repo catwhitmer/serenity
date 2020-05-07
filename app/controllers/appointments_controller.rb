@@ -18,13 +18,29 @@ class AppointmentsController < ApplicationController
     end 
 
     def show
-        @appointment = Appointment.find_by(id: params[:id])
+        set_appointment
     end
 
+    def edit
+      set_appointment
+    end
+
+    def update
+      set_appointment
+      if @appointment.update(appointment_params)
+        redirect_to appointment_path(@appointment)
+      else
+        render :edit
+      end
+    end
 
     private
 
     def appointment_params
-      params.require(:appointment).permit(:location, :date, :time)
+      params.require(:appointment).permit(:location, :date, :time, :massage_id)
+    end
+
+    def set_appointment
+        @appointment = Appointment.find_by(id: params[:id])
     end
 end
