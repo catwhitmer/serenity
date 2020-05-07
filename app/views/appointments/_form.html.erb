@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/errors', locals: {object: @appoinment} %>
+
 <%= form_for(@appointment) do |f| %>
     <%= f.label :location %>
     <%= f.select :location, options_for_select(["Atlanta", "New York", "Houston", "Miami", "San Francisco", "Seattle", "Las Vegas", "Chicago", "Detroit"]) %>
