@@ -17,10 +17,13 @@
     Select a 
     <%= f.label :massage_id %>
     <%= f.collection_select :massage_id, Massage.all, :id, :category, prompt: true %>
+
+    <br><br>
   
     Select the Length of the 
     <%= f.label :massage_id %>
     <%= f.collection_select :massage_id, Massage.all, :id, :length, prompt: true %>
+    min
   
     <br><br>
 
