@@ -44,14 +44,14 @@ class AppointmentsController < ApplicationController
 
     def destroy
       set_appointment
-      @appointments.destroy
+      @appointment.destroy
       redirect_to appointments_path
     end
 
     private
 
     def appointment_params
-      params.require(:appointment).permit(:location, :date, :time, :massage_id)
+      params.require(:appointment).permit(:location, :date, :time, :massage_id, massage_attributes: [:category, :length])
     end
 
     def set_appointment
