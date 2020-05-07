@@ -1,5 +1,3 @@
-<%= render partial: 'layouts/errors', locals: {object: @massage} %>
-
 <%= form_for @massage do |f| %>
     <%= f.label :category %><br>
     <%= f.select :category, options_for_select(["Swedish massage", "Assisted stretch massage", "Hot Stone massage", "Deep Tissue massage", "Pre Natal massage", "Reflexology massage"]) %><br>

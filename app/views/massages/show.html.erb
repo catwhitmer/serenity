@@ -2,3 +2,4 @@
 <h3> Length: <%= @massage.length %> min </h3>
 
 <%= link_to "Edit Massage", edit_massage_path(@massage) %>
+<%= link_to "Delete Massage", massage_path(@massage), method: :delete %>
