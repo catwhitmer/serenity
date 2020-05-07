@@ -1,30 +1,3 @@
-<h1>Make an appointment right here!</h1>
+<h1>Create a Massage</h1>
 
-<%= form_for(@appointment) do |f| %>
-    <%= f.label :location %>
-    <%= f.select :location, options_for_select(["Atlanta", "New York", "Houston", "Miami", "San Francisco", "Seattle", "Las Vegas", "Chicago", "Detroit"]) %>
-
-    <br><br>
-
-    <%= f.label :date %>
-    <%= f.select :date, options_for_select(["May 15th", "May 16th", "May 17th", "May 18th", "May 20th", "May 21st", "June 2nd", "June 3rd"]) %>
-
-    <br><br>
-
-    <%= f.label :time %>
-    <%= f.select :time, options_for_select(["8:00 am", "9:00 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm"]) %>
-
-    <br><br>
-
-    Select a 
-    <%= f.label :massage_id %>
-    <%= f.collection_select :massage_id, Massage.all, :id, :category, prompt: true %>
-  
-    Select the Length of the 
-    <%= f.label :massage_id %>
-    <%= f.collection_select :massage_id, Massage.all, :id, :length, prompt: true %>
-  
-    <br><br>
-
-    <%= f.submit "Make an Appointment" %>
-<% end %>
+<%= render "form" %>

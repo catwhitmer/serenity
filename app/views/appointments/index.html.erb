@@ -1,7 +1,9 @@
 <h1>Your Appointments</h1>
+<br>
 
 <% @appointments.each do |appointment| %>
-  <h3><%= link_to appointment.location, appointment_path(appointment) %></h3>
+  <h2><%= appointment.massage.try(:category) %> - <%= appointment.massage.try(:length) %> min </h2> 
+  <h4><%= appointment.location %></h4>
   <h4><%= appointment.date %></h4>
   <h4><%= appointment.time %></h4>
   <br>
