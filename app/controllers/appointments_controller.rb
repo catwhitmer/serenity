@@ -5,7 +5,11 @@ class AppointmentsController < ApplicationController
     end
     
     def new 
-        @appointment = Appointment.new
+        if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
+          @appoinment = massage.appointments.build 
+        else
+          @appointment = Appointment.new
+        end
     end 
 
     def create
@@ -32,6 +36,12 @@ class AppointmentsController < ApplicationController
       else
         render :edit
       end
+    end
+
+    def destroy
+      set_appointment
+      @appointments.destroy
+      redirect_to appointments_path
     end
 
     private
