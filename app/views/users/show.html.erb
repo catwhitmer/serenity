@@ -1,8 +1,11 @@
 <h1>Welcome <%=@user.username%></h1>
 
 <br>
-<h3>See all of my appointments</h3>
-<h4><%= link_to "All of my appointments", user_appointment_path(@user.id) %></h4>
+
+<h4><%= link_to "My Appointments", user_appointment_path(@user.id) %></h4>
 <br>
-<h3>Make an appointment</h3>
-<h4><%= link_to "Make a new Appointment", new_massage_appointment_path(@user.id) %></h4>
+
+<h4><%= link_to "New Appointment", new_massage_appointment_path(@user.id) %></h4>
+<br>
+
+<h4><%= link_to "Create Custom Massage", new_massage_path(@user.id) %></h4>
