@@ -10,9 +10,21 @@
   </head>
 
   <body>
+    <div class="container">  <!-- newly added code -->
 
-    <%= link_to 'Logout', logout_path, method: :delete %>
-
-    <%= yield %>
+    <!-- beginning of new code -->
+      <nav>
+        <div class="nav-wrapper blue-grey darken-1">
+          <a href="#" class="brand-logo center">Serenity Massages</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- end of new code -->
+      <%= yield %>
+    </div>   
+                    <!-- newly added code -->
+   
   </body>
 </html>
