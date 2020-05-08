@@ -1,7 +1,7 @@
 <h1>Welcome <%=@user.username%></h1>
 
 <h3>See all of my appointments</h3>
-<h4><%= %></h4>
+<h4><%= link_to "All of my appointments", user_appointments_path(@user.id) %></h4>
 
 <h3>Make an appointment</h3>
-<h4><%=  %></h4>
+<h4><%= link_to "make a new Appointment", new_user_appointment_path(@user.id) %></h4>
