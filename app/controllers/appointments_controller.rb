@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     
     def new 
       if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
-        @appoinment = massage.appointments.build 
+        @appointment = massage.appointments.build 
       else
         @appointment = Appointment.new
       end
