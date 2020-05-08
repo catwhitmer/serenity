@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   
   resources :appointments
   resources :users 
-  resources :users do
-    resources :appointments
-  end
+  resources :users 
   resources :massages do 
     resources :appointments, only: [:new, :index]
   end
