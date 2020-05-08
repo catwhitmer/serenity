@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   post '/singup', to: 'users#new'
 
   get '/auth/facebook/callback', to: 'sessions#fbcreate'
+
+  get '/users/:id/appointments', to: 'appointments#index', as:"user_appointment"
+  post '/massages/:id/appointments/new', to: 'appointments#create', as:"new_massage_appointment"
   
   resources :appointments
-  resources :users do 
-    resources :appointments, only: [:new, :index] 
-  end
+  resources :users 
   resources :massages do 
     resources :appointments, only: [:new, :index]
   end
