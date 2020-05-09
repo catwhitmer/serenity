@@ -1,6 +1,10 @@
 <h1>Welcome <%=@user.username%></h1>
 
 <br>
+<div class="alert alert-success" role="alert">
+  Success! You are logged in!
+</div>
+<br>
 
 <h4><%= link_to "My Appointments", user_appointment_path(@user.id) %></h4>
 <br>
