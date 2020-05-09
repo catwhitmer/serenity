@@ -15,14 +15,12 @@
  */
 
 .navbar {
-  background-color: lightskyblue;
-  width: 200px;
-  margin: 10px;
+  background-color: lightcyan;
+  padding-top: .5%;
 }
 .container {
   background-color: lightcyan;
-  margin: 40px, 40px, 40px, 40px;
-  height: 500px;
-  width: 500px;
-
+  margin: 5% auto;
+  height: 600px;
+  width: 600px;
 }
