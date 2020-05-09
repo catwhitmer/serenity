@@ -11,11 +11,15 @@
 
   <body>
    
-    <%= link_to 'Logout', logout_path, method: :delete %>
-
+    <nav class='navbar'>
+      <%= link_to 'Logout', logout_path, method: :delete %>
+      <%= link_to 'Home', appointments_path %>
     
+    </nav>
+
+    <div class='container'>
       <%= yield %>
- 
+    </div>
 
   </body>
 </html>
