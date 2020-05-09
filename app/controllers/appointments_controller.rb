@@ -4,7 +4,11 @@ class AppointmentsController < ApplicationController
       if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
         @appointments = massage.appointments
       else
-        @appointments = Appointment.all
+        if params[:length]
+         @appointments = Appointment.search_by_length(params[:length])
+        else
+          @appointments = Appointment.all
+        end
       end
     end
     

@@ -4,5 +4,5 @@ class Appointment < ApplicationRecord
 
     validates :location, :date, :time, presence: true
 
-    scope :find_massage, -> { where(length: "90") }
+    scope :search_by_length, -> (search_length){where("length = ?"). search_length}
 end
