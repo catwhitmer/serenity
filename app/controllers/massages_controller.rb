@@ -13,11 +13,8 @@ class MassagesController < ApplicationController
     end
 
     def new
-        if logged_in?
-          @massage = Massage.new
-        else
-          redirect_to login_path
-        end
+      @massage = Massage.new
+      render :new
     end
 
     def create
@@ -35,7 +32,7 @@ class MassagesController < ApplicationController
 
     def update
       set_massage
-      if authorized?(@massage) && @massage.update(massage_params)
+      if @massage.update(massage_params)
         redirect_to massage_path(@massage)
       else
         render :edit
