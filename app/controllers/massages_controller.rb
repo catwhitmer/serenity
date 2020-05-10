@@ -1,7 +1,11 @@
 class MassagesController < ApplicationController
 
     def index
-      @massages = Massage.all
+      if logged_in?
+        @massages = Massage.all
+      else 
+        redirect_to login_path
+      end
     end
 
     def show
@@ -9,7 +13,11 @@ class MassagesController < ApplicationController
     end
 
     def new
-        @massage = Massage.new
+        if logged_in?
+          @massage = Massage.new
+        else
+          redirect_to login_path
+        end
     end
 
     def create
@@ -27,7 +35,7 @@ class MassagesController < ApplicationController
 
     def update
       set_massage
-      if @massage.update(massage_params)
+      if authorized?(@massage) && @massage.update(massage_params)
         redirect_to massage_path(@massage)
       else
         render :edit
@@ -36,8 +44,12 @@ class MassagesController < ApplicationController
 
     def destroy
       set_massage
-      @massage.destroy
-      redirect_to massages_path
+      if authorized(@massage)
+        @massage.destroy
+        redirect_to massages_path
+      else 
+        redirect_to massages_path
+      end
     end
 
     private
