@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
        !current_user.nil?  
     end
 
-    def authorized?(auth)
-      logged_in? && auth.user == current_user
+    def authorized?(a)
+      logged_in? && a.user == current_user
     end
 end
