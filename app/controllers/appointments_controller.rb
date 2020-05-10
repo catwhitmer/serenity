@@ -1,22 +1,22 @@
 class AppointmentsController < ApplicationController
 
     def index
-      if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
+      if current_user && params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
         @appointments = massage.appointments
-      else
-        if params[:length]
-         @appointments = Appointment.search_by_length(params[:length])
-        else
-          @appointments = Appointment.all
-        end
-      end
+      elsif logged_in?
+        @appointments = Appointment.includes(:user)
+      else 
+        redirect_to login_path
+      end  
     end
     
     def new 
-      if params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
+      if current_user && params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
         @appointment = massage.appointments.build 
+      elsif
+        current_user && @appointment = Appointment.new
       else
-        @appointment = Appointment.new
+      redirect_to login_path
       end
     end 
 
@@ -39,17 +39,21 @@ class AppointmentsController < ApplicationController
 
     def update
       set_appointment
-      if @appointment.update(appointment_params)
+      if authorized?(@appointment) && @appointment.update(appointment_params) 
         redirect_to appointment_path(@appointment)
       else
-        render :edit
+        redirect_to appointments_path
       end
     end
 
     def destroy
       set_appointment
-      @appointment.destroy
-      redirect_to appointments_path
+      if authorized?(@appointment)
+        @appointment.destroy
+        redirect_to appointments_path
+      else
+        redirect_to appointments_path
+      end
     end
 
     private
