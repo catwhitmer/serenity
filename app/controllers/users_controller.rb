@@ -14,17 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def fbcreate
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.username = auth['info']['name']
-      u.password = auth['uid']
-    end
- 
-    session[:user_id] = @user.id
- 
-    redirect_to user_path(@user)
-  end
-
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -35,7 +24,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password)
   end
 
-  def auth
-    request.env['omniauth.auth']
-  end
 end
