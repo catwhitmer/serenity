@@ -2,7 +2,7 @@
 <br>
 
 <% @appointments.each do |appointment| %>
-  <h2><%= link_to appointment.massage.try(:category), appointment_path(appointment) %> - <%= appointment.massage.try(:length) %> min </h2> 
+  <h2><%= link_to appointment.massage.category, appointment_path(appointment) %> - <%= appointment.massage.length %> min </h2> 
   <h4><%= appointment.location %></h4>
   <h4><%= appointment.date %></h4>
   <h4><%= appointment.time %></h4>
