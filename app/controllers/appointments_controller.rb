@@ -2,9 +2,9 @@ class AppointmentsController < ApplicationController
 
     def index
       if current_user && params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
-        @appointments = massage.appointments
+        @appointments = massage.appointments.where(user_id: current_user)
       elsif logged_in?
-        @appointments = Appointment.includes(:user)
+        @appointments = current_user.appointments
       else 
         redirect_to login_path
       end  
