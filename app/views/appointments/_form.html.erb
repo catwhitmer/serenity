@@ -13,19 +13,28 @@
     <%= f.select :time, options_for_select(["8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm"]) %>
 
     <br><br>
+    
+    <% if !@massage %>
+        Select a 
+        <%= f.label :massage_id %>
+        <%= f.collection_select :massage_id, Massage.all, :id, :category, prompt: true %>
 
-    Select a 
-    <%= f.label :massage_id %>
-    <%= f.collection_select :massage_id, Massage.all, :id, :category, prompt: true %>
+        <br><br>
+    
+        Select the Length of the 
+        <%= f.label :massage_id %>
+        <%= f.collection_select :massage_id, Massage.all, :id, :length, prompt: true %>
+        min
+    
+        <br><br>
+    <% else %> 
+      <%= f.hidden_field :massage_id %>
+      <p>
+        <%= @massage.category %> - 
+        <%= @massage.length %> min
+      </p>
 
-    <br><br>
-  
-    Select the Length of the 
-    <%= f.label :massage_id %>
-    <%= f.collection_select :massage_id, Massage.all, :id, :length, prompt: true %>
-    min
-  
-    <br><br>
+    <% end %> 
 
     <%= f.submit "Make an Appointment" %>
 <% end %>
