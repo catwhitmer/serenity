@@ -11,8 +11,8 @@ class AppointmentsController < ApplicationController
     end
     
     def new 
-      if current_user && params[:massage_id] && massage = Massage.find_by(id: params[:massage_id])
-        @appointment = massage.appointments.build 
+      if current_user && params[:massage_id] && @massage = Massage.find_by(id: params[:massage_id])
+        @appointment = @massage.appointments.build 
       elsif
         current_user && @appointment = Appointment.new
       else
