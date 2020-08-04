@@ -18,9 +18,19 @@
   background-color: lightcyan;
   padding-top: .5%;
 }
-.container {
-  background-color: lightcyan;
-  margin: 5% auto;
-  height: 2000px;
-  width: 600px;
+ .float-container {
+  padding: 20px;
+} 
+
+.float-child {
+  width: 30%;
+  float: left;
+  padding: 20px;
+}
+
+.img {
+  max-width: 70%;
+  height: auto;
+  float: right;
+  padding: 20px;
 }

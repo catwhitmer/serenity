@@ -16,13 +16,19 @@
       <h5><%= link_to 'All Massages', massages_path %></h5>
       <h5><%= link_to 'New Massage', new_massage_path %></h5>
       <h5><%= link_to 'All Appointments', appointments_path %></h5>
-      <h5><%= link_to 'New Appointment', new_appointment_path %></h5>
- 
-      
+      <h5><%= link_to 'New Appointment', new_appointment_path %></h5> 
     </nav>
 
-    <div class='container'>
-      <%= yield %>
+
+    <div class='float-container'>
+
+      <div class='float-child'>
+        <div class='content'><%= yield %></div>
+      </div>
+      <div>
+        <div class='img'><%= image_tag("Massag3.jpg") %></div>
+      </div>
+
     </div>
 
   </body>
